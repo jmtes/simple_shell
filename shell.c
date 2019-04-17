@@ -136,7 +136,7 @@ void exec_command(char *usr_input)
 	argv = make_argv(usr_input);
 	if (!argv)
 	{
-		_printf("Something is going terribly wrong.");
+		_printf("./shell: No such file or directory\n");
 		free(usr_input);
 		return;
 	}
