@@ -1,3 +1,34 @@
+# C PROGRAMMING – Simple Shell Project
+
+![Just a shell (courtesy Gregory Culmer](https://github.com/komerela/Code_tester/blob/master/gregory-culmer-1291432-unsplash.jpg)
+
+### Description
+What you should learn from this project:
+
+* Who designed and implemented the original Unix operating system? Dennis Ritchie, Doug McIlroy, and Peter G. Neumann also credit Kernighan.
+* Who wrote the first version of the UNIX shell? Ken Thompson
+* Who invented the B programming language? Ken Thompson & Dennis Ritchie
+* Who is Ken Thompson? An original developer of the Unix Shell
+* How does a shell work?
+* What is a pid and a ppid?
+* Learn how to manipulate the environment of the current process.
+* What is the difference between a function and a system call?
+* Learn how to create processes.
+* How does the shell use the PATH to find the programs?
+* Learn how to execute another program with the execve system call.
+* Learn how to suspend the execution of a process until one of its children terminates.
+* What is EOF / “end-of-file”?
+
+<ul>
+<li>What are the three prototypes of main?</li>
+<ul>
+<li>int main(void)</li>
+<li>int main(int ac, char **av)</li>
+<li>int main(int ac, char **av, char **env)</li>
+</ul>
+</ul>
+
+
 ### [0. README](./README.md)
 
 * A README file that describes the simple shell project
