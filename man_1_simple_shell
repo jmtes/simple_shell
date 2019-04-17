@@ -1,0 +1,107 @@
+.TH man_1_simple_shell
+
+.Dd April 09, 2019
+
+.Os [OS] [seashell/v1]
+
+.SH NAME man_1_simple_shell Project
+
+
+.Sh SYNOPSIS
+
+.Nd /bin/ls [-l][-la][-a] Displays a list of files in stdout in varied formats
+
+.Nd /bin/pwd Displays a directory path to stdout
+
+.Nd pwd Displays a directory path after implementation of stat
+
+
+.Sh DESCRIPTION
+
+Simple_shell prints the commands to stdout and is able to support basic shell commands and their functionality. To activate our simple_shell, user has to compile the program and run a ./a.out command to enter the simple shell.
+
+.Sh Examples of common usage
+
+- pwd lists the directory paths in this format /home/vagrant/holbertonschool-low_level_programming/simple_shell
+
+- ls will list the files in the current directory in this format
+
+README.md  a.out  seashell.h  super_simple_shell.c
+
+
+.Sh Command [Options]
+
+.Sh ls [options]
+
+.Op -a Ar - list all files including hidden file starting with
+
+.Op –color Ar - colored list [=always/never/auto]
+
+.Op -d Ar - list directories - with ' */'
+
+.Op -F Ar - add one char of */=>@| to enteries
+
+.Op -i Ar - list file's inode index number
+
+.Op -l Ar - list with long format - show permissions
+
+.Op -la Ar - list long format including hidden files
+
+.Op -lh Ar - list long format with readable file size
+
+.Op -ls Ar - list with long format with file size
+
+.Op -r Ar - list in reverse order
+
+.Op -R Ar - list recursively directory tree
+
+.Op -s Ar - list file size
+
+.Op -S sort by file size
+
+.Op -t Ar - sort by time & date
+
+.Op -X Ar - sort by extension name
+
+
+.Sh pwd [option]
+
+.Op cd Ar changes working directory
+
+.Op pwd Ar print working directory
+
+.Sh Other options
+
+.Op exit Ar exits the shell
+
+.Op Ctrl + D Ar exits the shell
+
+.Sh FILES
+
+- simple_shell
+- man_1_simple_shell
+- AUTHORS
+
+
+.Sh ENVIRONMENT
+
+
+**DEFAULT ‘$’ prompt **
+
+The default dedication if none is given. Has the highest precedence
+    if a no command is supplied on the command line the $ will wait until exited using Ctrl + D or exit is typed.
+
+.Sh BUGS
+
+See GitHub Issues: <https://github.com/
+
+.Sh AUTHORS
+
+-   Julienne Tesoro – [Cohort 8] Github [jmtes]
+
+-   Koome Mwiti – [Cohort 8] Github [komerela]
+
+
+.Sh SEE ALSO
+========
+.Dd 17Th April 2019
