@@ -21,8 +21,8 @@ char *get_filepath(char *command)
 	PATH = _getenv("PATH");
 	if (PATH)
 	{
-		a = strstr(PATH, "::");
-		b = strstr(PATH, ":/bin");
+		a = _strstr(PATH, "::");
+		b = _strstr(PATH, ":/bin");
 		if (PATH[0] == ':' || PATH[_strlen(PATH) - 1] == ':' ||
 		    (a && (a < b)))
 		{
@@ -104,7 +104,7 @@ char **make_argv(char *string)
 	token = array[0];
 	if (*token != '/')
 	{
-		if (!strcmp(token, "exit"))
+		if (!_strcmp(token, "exit"))
 		{
 			free(array);
 			free(string);
@@ -128,7 +128,7 @@ char **make_argv(char *string)
  * Return: void
  */
 
-void exec_command(char *usr_input)
+void exec_command(char *usr_input, char *shell_name)
 {
 	char **argv = NULL;
 	pid_t is_parent, j;
@@ -136,7 +136,7 @@ void exec_command(char *usr_input)
 	argv = make_argv(usr_input);
 	if (!argv)
 	{
-		_printf("./shell: No such file or directory\n");
+		_printf("%s: No such file or directory\n", shell_name);
 		free(usr_input);
 		return;
 	}
@@ -148,7 +148,7 @@ void exec_command(char *usr_input)
 		j = execve(argv[0], argv, NULL);
 		if (j == -1)
 		{
-			_printf("./shell: No such file or directory\n");
+			_printf("%s: No such file or directory\n", shell_name);
 			free(argv);
 			free(usr_input);
 			return;
@@ -167,7 +167,7 @@ void exec_command(char *usr_input)
  * Return: void
  */
 
-int main(void)
+int main(__attribute__((unused)) int ac, char **av)
 {
 	char *newline = NULL;
 	size_t bufsize = 1024;
@@ -196,13 +196,13 @@ int main(void)
 			continue;
 		}
 
-		if (!strcmp(usr_input, "env"))
+		if (!_strcmp(usr_input, "env"))
 		{
 			env_builtin();
 			free(usr_input);
 			continue;
 		}
-		exec_command(usr_input);
+		exec_command(usr_input, av[0]);
 	}
 	free(usr_input);
 	return (0);
