@@ -46,7 +46,7 @@ void env_builtin(void);
 
 /*linked list operations*/
 void free_list(dir_list_t **head);
-dir_list_t *add_node_end(dir_list_t **head, const char *str);
+dir_list_t *add_node_end(dir_list_t **head, char *str);
 char *_getenv(char *name);
 dir_list_t *make_path_list(void);
 
@@ -69,5 +69,6 @@ int _strlen(char *s);
 char *_strdup(char *str);
 int _strcmp(char *s1, char *s2);
 char *_strchr(char *s, char c);
+char *_strstr(char *haystack, char *needle);
 
 #endif
