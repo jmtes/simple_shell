@@ -31,7 +31,7 @@ void free_list(dir_list_t **head)
  * Return: Returns address of new_node
  */
 
-dir_list_t *add_node_end(dir_list_t **head, const char *str)
+dir_list_t *add_node_end(dir_list_t **head, char *str)
 {
 	dir_list_t *tail = *head;
 	dir_list_t *new_node = NULL;
@@ -44,7 +44,7 @@ dir_list_t *add_node_end(dir_list_t **head, const char *str)
 	if (!new_node)
 		return (NULL);
 
-	new_dir_path = strdup(str);
+	new_dir_path = _strdup(str);
 	if (str && !new_dir_path)
 	{
 		free(new_node);
@@ -79,7 +79,7 @@ char *_getenv(char *name)
 
 	while (*environ)
 	{
-		env_cpy = strdup(*environ);
+		env_cpy = _strdup(*environ);
 		token = strtok(env_cpy, "=");
 
 		if (!strcmp(token, name))
