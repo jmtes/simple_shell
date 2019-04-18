@@ -42,7 +42,6 @@ extern int errno;
 char *usr_input;
 char **array;
 char tmp[256];
-int prompt_no;
 
 void env_builtin(void);
 int error_handler(char *shell_name, char *command, int prompt_no);
