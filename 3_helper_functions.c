@@ -86,6 +86,13 @@ int is_empty(char *usr_input)
 	return (1);
 }
 
+/**
+ * is_a_path - Determine if token is a path
+ * @token: String containing token
+ *
+ * Return: 1 if token is a path, 0 otherwise
+ */
+
 int is_a_path(char *token)
 {
 	if (*token == '/')

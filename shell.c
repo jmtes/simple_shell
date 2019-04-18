@@ -125,6 +125,7 @@ char **make_argv(char *string)
  * exec_command - Function that executes coomand
  *
  * @usr_input: Input string to be executed
+ * @shell_name: Name of executable
  * Return: void
  */
 
@@ -161,6 +162,8 @@ void exec_command(char *usr_input, char *shell_name)
 
 /**
  * main - Function main
+ * @ac: Number of command line args
+ * @av: Array of command line args
  *
  * Return: void
  */
