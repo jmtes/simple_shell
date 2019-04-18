@@ -160,6 +160,17 @@ void exec_command(char *usr_input, char *shell_name)
 	return;
 }
 
+int is_empty(char *usr_input)
+{
+	while (*usr_input)
+	{
+		if (*usr_input != ' ' && *usr_input != '\t')
+			return (0);
+		usr_input++;
+	}
+	return (1);
+}
+
 /**
  * main - Function main
  *
@@ -189,7 +200,7 @@ int main(__attribute__((unused)) int ac, char **av)
 		if (newline)
 			*newline = '\0';
 
-		if (!*usr_input)
+		if (is_empty(usr_input))
 		{
 			free(usr_input);
 			continue;
