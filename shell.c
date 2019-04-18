@@ -136,11 +136,8 @@ void exec_command(char *usr_input, char *shell_name)
 	argv = make_argv(usr_input);
 	if (!argv)
 	{
-		_puts(usr_input);
-		_puts(": ");
-		_puts(strerror(errno));
-		_putchar('\n');
-		exit(127);
+		_printf("Something is going terribly wrong.");
+		free(usr_input);
 		return;
 	}
 	is_parent = fork();
