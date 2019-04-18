@@ -140,7 +140,7 @@ void exec_command(char *usr_input, char *shell_name)
 		_puts(": ");
 		_puts(strerror(errno));
 		_putchar('\n');
-		exit(EXIT_FAILURE);
+		exit(127);
 		return;
 	}
 	is_parent = fork();
