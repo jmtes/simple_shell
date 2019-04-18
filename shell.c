@@ -136,11 +136,13 @@ void exec_command(char *usr_input, char *shell_name)
 	argv = make_argv(usr_input);
 	if (!argv)
 	{
-		_printf("%s: No such file or directory\n", shell_name);
-		free(usr_input);
+		_puts(usr_input);
+		_puts(": ");
+		_puts(strerror(errno));
+		_putchar('\n');
+		exit(EXIT_FAILURE);
 		return;
 	}
-
 	is_parent = fork();
 
 	if (is_parent == 0)
