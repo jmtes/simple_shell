@@ -82,7 +82,7 @@ char *_getenv(char *name)
 		env_cpy = _strdup(*environ);
 		token = strtok(env_cpy, "=");
 
-		if (!strcmp(token, name))
+		if (!_strcmp(token, name))
 		{
 			token = strtok(NULL, "\0");
 			/*token = strdup(token);*/
