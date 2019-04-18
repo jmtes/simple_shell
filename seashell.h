@@ -70,5 +70,7 @@ char *_strdup(char *str);
 int _strcmp(char *s1, char *s2);
 char *_strchr(char *s, char c);
 char *_strstr(char *haystack, char *needle);
+int is_empty(char *usr_input);
+int is_a_path(char *usr_input);
 
 #endif
