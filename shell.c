@@ -136,7 +136,7 @@ void exec_command(char *usr_input, char *shell_name)
 	argv = make_argv(usr_input);
 	if (!argv)
 	{
-		_printf("Something is going terribly wrong.");
+		error_handler(shell_name, usr_input);
 		free(usr_input);
 		return;
 	}
@@ -147,7 +147,7 @@ void exec_command(char *usr_input, char *shell_name)
 		j = execve(argv[0], argv, NULL);
 		if (j == -1)
 		{
-			_printf("%s: No such file or directory\n", shell_name);
+			error_handler(shell_name, usr_input);
 			free(argv);
 			free(usr_input);
 			return;
@@ -171,9 +171,11 @@ int main(__attribute__((unused)) int ac, char **av)
 	char *newline = NULL;
 	size_t bufsize = 1024;
 	ssize_t p;
+	prompt_no = 0;
 
 	while (1)
 	{
+		prompt_no++;
 		if (isatty(STDIN_FILENO))
 			_printf("$ ");
 		usr_input = malloc(1024);
@@ -182,6 +184,7 @@ int main(__attribute__((unused)) int ac, char **av)
 		p = getline(&usr_input, &bufsize, stdin);
 		if (p == -1)
 		{
+			_putchar('\n');
 			free(usr_input);
 			exit(0);
 		}
