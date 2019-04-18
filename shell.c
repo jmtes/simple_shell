@@ -128,7 +128,7 @@ char **make_argv(char *string)
  * Return: void
  */
 
-void exec_command(char *usr_input, char *shell_name)
+void exec_command(char *usr_input, char *shell_name, int prompt_no)
 {
 	char **argv = NULL;
 	pid_t is_parent, j;
@@ -136,7 +136,7 @@ void exec_command(char *usr_input, char *shell_name)
 	argv = make_argv(usr_input);
 	if (!argv)
 	{
-		error_handler(shell_name, usr_input);
+		error_handler(shell_name, usr_input, prompt_no);
 		free(usr_input);
 		return;
 	}
@@ -147,7 +147,7 @@ void exec_command(char *usr_input, char *shell_name)
 		j = execve(argv[0], argv, NULL);
 		if (j == -1)
 		{
-			error_handler(shell_name, usr_input);
+			error_handler(shell_name, usr_input, prompt_no);
 			free(argv);
 			free(usr_input);
 			return;
@@ -171,7 +171,7 @@ int main(__attribute__((unused)) int ac, char **av)
 	char *newline = NULL;
 	size_t bufsize = 1024;
 	ssize_t p;
-	prompt_no = 0;
+	int prompt_no = 0;
 
 	while (1)
 	{
@@ -204,7 +204,7 @@ int main(__attribute__((unused)) int ac, char **av)
 			free(usr_input);
 			continue;
 		}
-		exec_command(usr_input, av[0]);
+		exec_command(usr_input, av[0], prompt_no);
 	}
 	free(usr_input);
 	return (0);
