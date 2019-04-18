@@ -45,7 +45,7 @@ char tmp[256];
 int prompt_no;
 
 void env_builtin(void);
-int error_handler(char *shell_name, char *command);
+int error_handler(char *shell_name, char *command, int prompt_no);
 
 /*linked list operations*/
 void free_list(dir_list_t **head);
