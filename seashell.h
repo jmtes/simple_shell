@@ -38,11 +38,14 @@ typedef struct dir_node
 } dir_list_t;
 
 extern char **environ;
+extern int errno;
 char *usr_input;
 char **array;
 char tmp[256];
+int prompt_no;
 
 void env_builtin(void);
+int error_handler(char *shell_name, char *command);
 
 /*linked list operations*/
 void free_list(dir_list_t **head);
