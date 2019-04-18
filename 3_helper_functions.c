@@ -67,3 +67,38 @@ char *_strstr(char *haystack, char *needle)
 	}
 	return (0);
 }
+
+/**
+ * is_empty - Determine if user input is empty
+ * @usr_input: String containing user input
+ * 
+ * Return: 1 if string is empty, 0 otherwise
+ */
+
+int is_empty(char *usr_input)
+{
+	while (*usr_input)
+	{
+		if (*usr_input != ' ' && *usr_input != '\t')
+			return (0);
+		usr_input++;
+	}
+	return (1);
+}
+
+int is_a_path(char *token)
+{
+	if (*token == '/')
+		return (1);
+	if (*token == '.')
+	{
+		if (*(token + 1) == '/')
+			return (1);
+		if (*(token + 1) == '.')
+		{
+			if (*(token + 2) == '/')
+				return (1);
+		}
+	}
+	return (0);
+}
