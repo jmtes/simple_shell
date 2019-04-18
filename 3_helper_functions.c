@@ -71,7 +71,7 @@ char *_strstr(char *haystack, char *needle)
 /**
  * is_empty - Determine if user input is empty
  * @usr_input: String containing user input
- * 
+ *
  * Return: 1 if string is empty, 0 otherwise
  */
 
