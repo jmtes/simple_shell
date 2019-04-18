@@ -72,23 +72,6 @@ int word_count(char *string)
 	return (count);
 }
 
-int is_a_path(char *token)
-{
-	if (*token == '/')
-		return (1);
-	if (*token == '.')
-	{
-		if (*(token + 1) == '/')
-			return (1);
-		if (*(token + 1) == '.')
-		{
-			if (*(token + 2) == '/')
-				return (1);
-		}
-	}
-	return (0);
-}
-
 /**
  * make_argv - Function that shows args using strtok
  *
@@ -153,7 +136,7 @@ void exec_command(char *usr_input, char *shell_name)
 	argv = make_argv(usr_input);
 	if (!argv)
 	{
-		_printf("Something is going terribly wrong.");
+		_printf("Something is going terribly wrong.\n");
 		free(usr_input);
 		return;
 	}
@@ -174,18 +157,6 @@ void exec_command(char *usr_input, char *shell_name)
 	wait(NULL);
 	free(argv);
 	free(usr_input);
-	return;
-}
-
-int is_empty(char *usr_input)
-{
-	while (*usr_input)
-	{
-		if (*usr_input != ' ' && *usr_input != '\t')
-			return (0);
-		usr_input++;
-	}
-	return (1);
 }
 
 /**
