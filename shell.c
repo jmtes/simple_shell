@@ -72,6 +72,23 @@ int word_count(char *string)
 	return (count);
 }
 
+int is_a_path(char *token)
+{
+	if (*token == '/')
+		return (1);
+	if (*token == '.')
+	{
+		if (*(token + 1) == '/')
+			return (1);
+		if (*(token + 1) == '.')
+		{
+			if (*(token + 2) == '/')
+				return (1);
+		}
+	}
+	return (0);
+}
+
 /**
  * make_argv - Function that shows args using strtok
  *
@@ -102,7 +119,7 @@ char **make_argv(char *string)
 		i++;
 	}
 	token = array[0];
-	if (*token != '/')
+	if (!is_a_path(token))
 	{
 		if (!_strcmp(token, "exit"))
 		{
